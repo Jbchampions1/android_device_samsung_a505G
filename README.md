@@ -11,7 +11,7 @@ sudo apt install -y bison build-essential g++-multilib git make python zip openj
 ```
 screen
 mkdir -p ~/twrp && cd ~/twrp
-repo init --depth=1 -u https://github.com/samsung-galaxy-a50/platform_manifest_twrp_omni.git -b twrp-9.0
+repo init -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-9.0
 repo sync
 git clone https://github.com/samsung-galaxy-a50/android_device_samsung_a505fn.git device/samsung/a505fn
 git clone https://github.com/samsung-galaxy-a50/android_device_generic_twrpbuilder.git -b android-9.0 device/generic/twrpbuilder
