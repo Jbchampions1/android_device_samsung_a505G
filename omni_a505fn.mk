@@ -6,7 +6,8 @@ PRODUCT_PACKAGES += \
     charger
 
 PRODUCT_COPY_FILES += \
-    device/samsung/a505fn/recovery.fstab:recovery/root/recovery.fstab
+    device/samsung/a505fn/recovery.fstab:recovery/root/recovery.fstab \
+    recovery/root/init.recovery.exynos9610.rc:device/samsung/a505fn/init.recovery.exynos9610.rc
 
 #$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 
