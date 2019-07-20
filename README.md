@@ -21,7 +21,7 @@ lunch omni_a505fn-eng
 mka recoveryimage
 ```
 
-* Note: Do not copy-paste the whole block, instead run the commands one-by-one! *
+*Note: Do not copy-paste the whole block, instead run the commands one-by-one!*
 
 Your final image will be `recovery.img` in `~/twrp/out/target/product/a505fn/`. 
 
