@@ -28,10 +28,7 @@ TARGET_USES_UEFI := true
 TARGET_NO_RADIOIMAGE := true
 
 # Kernel
-BOARD_KERNEL_BASE := 0x10000000
-BOARD_KERNEL_PAGESIZE := 2048
-TARGET_PREBUILT_KERNEL := device/samsung/a505fn/prebuilt/Image.gz-kernel
-BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100 --board SRPRL05B001RU
+include $(LOCAL_PATH)/kernel.mk
 
 # Platform
 TARGET_BOARD_PLATFORM := exynos5
