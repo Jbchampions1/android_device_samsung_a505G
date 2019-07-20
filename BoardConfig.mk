@@ -82,5 +82,3 @@ TW_EXCLUDE_SUPERSU := true
 TW_EXTRA_LANGUAGES := true
 TW_USE_NEW_MINADBD := true
 TW_EXCLUDE_TWRPAPP := true
-
-include device/generic/twrpbuilder/BoardConfig64.mk
