@@ -1,4 +1,4 @@
-# TWRP Device tree for Alcatel 5059D
+# TWRP Device tree for Samsung Galaxy A50
 
 ## Building instructions
 
