@@ -3,7 +3,7 @@
 ## Install dependencies
 
 ```
-sudo apt install -y bison build-essential g++-multilib git make python zip openjdk-8-jdk repo screen libtinfo5
+sudo apt install -y bison build-essential g++-multilib git make python zip openjdk-8-jdk repo screen libtinfo5 libncurses5
 ```
 
 ## Building instructions
