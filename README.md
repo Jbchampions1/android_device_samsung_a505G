@@ -13,7 +13,7 @@ screen
 mkdir -p ~/twrp && cd ~/twrp
 repo init --depth=1 -u https://github.com/samsung-galaxy-a50/platform_manifest_twrp_omni.git -b twrp-9.0
 repo sync
-git clone https://github.com/samsung-galaxy-a50/android_device_samsung_a505fn.git device/alcatel/5059d
+git clone https://github.com/samsung-galaxy-a50/android_device_samsung_a505fn.git device/samsung/a505fn
 git clone https://github.com/samsung-galaxy-a50/android_device_generic_twrpbuilder.git device/generic/twrpbuilder
 export ALLOW_MISSING_DEPENDENCIES=true
 . build/envsetup.sh
