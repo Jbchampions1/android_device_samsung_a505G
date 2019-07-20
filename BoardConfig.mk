@@ -1,38 +1,87 @@
-#
-# Copyright (C) 2018 The TwrpBuilder Open-Source Project
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-# http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-#
+LOCAL_PATH := device/samsung/a505fn
 
-LOCAL_PATH := device/alcatel/5059d
+# Architecture
+TARGET_ARCH := arm64
+TARGET_ARCH_VARIANT := armv8-a
+TARGET_CPU_ABI := arm64-v8a
+TARGET_CPU_ABI2 :=
+TARGET_CPU_VARIANT := cortex-a53
+TARGET_CPU_SMP := true
 
-TARGET_BOARD_PLATFORM := mt6739
-TARGET_BOOTLOADER_BOARD_NAME := 5059d
+TARGET_2ND_ARCH := arm
+TARGET_2ND_ARCH_VARIANT := armv7-a-neon
+TARGET_2ND_CPU_ABI := armeabi-v7a
+TARGET_2ND_CPU_ABI2 := armeabi
+TARGET_2ND_CPU_VARIANT := cortex-a53
 
-# Recovery
+ENABLE_CPUSETS := true
+ENABLE_SCHEDBOOST := true
+
+ALLOW_MISSING_DEPENDENCIES=true
+
+# Bootloader
+BOARD_VENDOR := samsung
+TARGET_SOC := exynos9610
+TARGET_BOOTLOADER_BOARD_NAME := universal9610
+TARGET_NO_BOOTLOADER := true
+TARGET_USES_UEFI := true
+TARGET_NO_RADIOIMAGE := true
+
+# Kernel
+BOARD_KERNEL_BASE := 0x10000000
+BOARD_KERNEL_PAGESIZE := 2048
+TARGET_PREBUILT_KERNEL := device/samsung/a505fn/prebuilt/Image.gz-kernel
+BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100 --board SRPRL05B001RU
+
+# Platform
+TARGET_BOARD_PLATFORM := exynos5
+TARGET_BOARD_PLATFORM_GPU := mali-g72
+
+# Partitions
+BOARD_BOOTIMAGE_PARTITION_SIZE := 57671680
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67633152
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 5976883200
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 57089667072
+BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_CACHEIMAGE_PARTITION_SIZE := 268435456
+BOARD_VENDORIMAGE_PARTITION_SIZE := 1153433600
+BOARD_DTBOIMAGE_PARTITION_SIZE := 0x0800000
+BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
+
+# Filesystem
+BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_USERIMAGES_USE_EXT4 := true
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 17000000
-BOARD_FLASH_BLOCK_SIZE := 0
-BOARD_HAS_NO_REAL_SDCARD := true
-BOARD_HAS_NO_SELECT_BUTTON := true
-BOARD_SUPPRESS_SECURE_ERASE := true
-BOARD_HAS_NO_MISC_PARTITION := true
-BOARD_RECOVERY_SWIPE := true
-BOARD_USES_MMCUTILS := true
-BOARD_SUPPRESS_EMMC_WIPE := true
-TW_EXCLUDE_SUPERSU := true
-TW_INPUT_BLACKLIST := "hbtp_vm"
-TW_INCLUDE_CRYPTO := true
-include $(LOCAL_PATH)/kernel.mk
-include device/generic/twrpbuilder/BoardConfig32.mk
+TARGET_USERIMAGES_USE_F2FS := true
 
+# Android Verified Boot
+BOARD_AVB_ENABLE := true
+#BOARD_AVB_RECOVERY_ADD_HASH_FOOTER_ARGS := 
+ifeq ($(BOARD_AVB_ENABLE), true)
+   BOARD_AVB_RECOVERY_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
+   BOARD_AVB_RECOVERY_ALGORITHM := SHA256_RSA2048
+   BOARD_AVB_RECOVERY_ROLLBACK_INDEX := 1
+   BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
+endif
+
+# Crypto
+#TARGET_HW_DISK_ENCRYPTION := true
+TW_INCLUDE_CRYPTO := true
+TW_INCLUDE_FBE := true
+
+# TWRP specific build flags
+RECOVERY_VARIANT := twrp
+TW_THEME := portrait_hdpi
+RECOVERY_SDCARD_ON_DATA := true
+TARGET_RECOVERY_PIXEL_FORMAT := "ABGR_8888"
+TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel/brightness"
+TW_MAX_BRIGHTNESS := 25500
+TW_DEFAULT_BRIGHTNESS := 12800
+TW_Y_OFFSET := 80
+TW_H_OFFSET := -80
+TW_NO_REBOOT_BOOTLOADER := true
+TW_HAS_DOWNLOAD_MODE := true
+TW_INCLUDE_NTFS_3G := true
+TW_EXCLUDE_SUPERSU := true
+TW_EXTRA_LANGUAGES := true
+TW_USE_NEW_MINADBD := true
+TW_EXCLUDE_TWRPAPP := true
