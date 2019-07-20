@@ -22,4 +22,4 @@ If you encounter any problems, create a Github issue.
 
 TeamWin, OmniRom, TwrpBuilder, geiti94
 
-Copyright (c) 2018 A505FN Project and contributors. 
+Copyright (c) 2019 A505FN Project and contributors. 
